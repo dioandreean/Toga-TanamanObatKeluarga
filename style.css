@@ -1,0 +1,413 @@
+/* =========================================
+   1. RESET & GLOBAL
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+}
+a { text-decoration: none; color: inherit; }
+
+/* =========================================
+   2. HALAMAN HOME (HERO SECTION)
+   ========================================= */
+.hero {
+    height: 100vh;
+    background: url("assets/toga.jpeg") center/cover no-repeat;
+    position: relative;
+    transition: background-image 1s ease-in-out;
+}
+.overlay {
+    background: rgba(0, 0, 0, 0.6);
+    height: 100%; width: 100%;
+    display: flex; justify-content: center; align-items: center;
+    padding: 20px;
+}
+.hero-card {
+    background: transparent; border: none; box-shadow: none; backdrop-filter: none;
+    padding: 20px; text-align: center; max-width: 900px; color: white;
+    animation: fadeInUp 1.2s ease-out;
+}
+.welcome-badge {
+    display: inline-block; background: #2e7d32; color: #fff;
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+    padding: 8px 20px; border-radius: 50px; margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.hero-card h1 {
+    font-family: 'Georgia', serif; font-size: 64px; margin-bottom: 15px;
+    line-height: 1.1; text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
+}
+.hero-card h1 span {
+    font-family: 'Segoe UI', sans-serif; font-weight: 300; display: block;
+    font-size: 32px; margin-top: 10px; opacity: 0.9;
+}
+.hero-card p {
+    font-size: 18px; margin-bottom: 40px; line-height: 1.6; font-weight: 400;
+    max-width: 600px; margin-left: auto; margin-right: auto;
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
+}
+.start-btn {
+    background: #2e7d32; color: white; padding: 15px 45px; border-radius: 50px;
+    font-weight: bold; font-size: 16px; transition: all 0.3s ease;
+    display: inline-flex; align-items: center; gap: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4); border: 2px solid transparent;
+}
+.start-btn:hover {
+    background: transparent; border-color: #2e7d32; color: #fff;
+    transform: translateY(-5px);
+}
+.start-btn:hover .arrow { transform: translateX(5px); }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   3. SLIDER TANAMAN (STYLE PERBAIKAN)
+   ========================================= */
+.plants { padding: 60px 40px; }
+.plants-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.view-all { color: #2e7d32; font-weight: bold; }
+
+.slider-container { overflow: hidden; width: 100%; padding: 10px 0 30px 0; position: relative; }
+
+/* PENTING: Display FLEX agar kartu sejajar ke samping */
+.slider-track { 
+    display: flex; 
+    gap: 30px; 
+    width: max-content; 
+    animation: scrollLoop 20s linear infinite; 
+}
+
+.slider-track .card {
+    min-width: 280px; max-width: 280px; 
+    background: #fff; border-radius: 15px; overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s;
+    border: 1px solid #eee; text-decoration: none; color: inherit;
+}
+.slider-track .card img { width: 100%; height: 180px; object-fit: cover; }
+.slider-track .card h3 { margin: 15px 15px 5px; font-size: 18px; color: #2e7d32; }
+.slider-track .card p { margin: 0 15px 20px; font-size: 14px; color: #666; }
+
+.slider-track:hover { animation-play-state: paused; }
+.slider-track .card:hover { transform: translateY(-10px); border-color: #2e7d32; }
+@keyframes scrollLoop { 0% { transform: translateX(0); } 100% { transform: translateX(-1240px); } }
+
+/* =========================================
+   4. HALAMAN LIST (GRID & HEADER)
+   ========================================= */
+.kew-header {
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+    padding: 15px 50px; display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.site-title { font-family: 'Georgia', serif; font-size: 24px; color: #1b5e20; display: flex; gap: 8px; }
+.site-title span {
+    font-family: 'Segoe UI', sans-serif; font-size: 12px; background: #e8f5e9;
+    color: #2e7d32; padding: 4px 10px; border-radius: 6px; font-weight: 700;
+}
+.header-right { display: flex; align-items: center; gap: 25px; }
+.nav-link { font-size: 14px; font-weight: 700; color: #666; text-transform: uppercase; }
+.nav-link:hover { color: #2e7d32; }
+
+.search-box input {
+    padding: 12px 20px; border: 2px solid transparent; border-radius: 50px;
+    background: #f1f3f4; width: 280px; transition: all 0.3s;
+}
+.search-box input:focus { background: #f6f6f6; border-color: #2e7d32; width: 320px; outline: none; }
+.results-bar {
+    background: #fff; padding: 15px 50px; display: flex; justify-content: space-between;
+    align-items: center; border-bottom: 1px solid #f0f0f0; margin-bottom: 30px;
+}
+
+/* Grid Tanaman */
+.kew-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; 
+    margin: 0 40px 60px 40px;
+}
+.kew-card {
+    background: #fff; border: 1px solid #e0e0e0; border-radius: 12px;
+    overflow: hidden; transition: transform 0.2s; display: flex; flex-direction: column; height: 100%;
+}
+.kew-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.card-content { padding: 25px; flex-grow: 1; }
+.sci-name { font-family: "Georgia", serif; font-style: italic; font-size: 22px; margin-bottom: 10px; }
+.card-images { height: 200px; margin-top: 20px; }
+.card-images img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Filter Buttons */
+.filter-container { display: flex; justify-content: center; gap: 10px; margin: 30px 40px; flex-wrap: wrap; }
+.filter-btn {
+    border: none; background: #e8f5e9; color: #2e7d32; padding: 10px 24px;
+    border-radius: 50px; cursor: pointer; font-weight: 700;
+}
+.filter-btn.active { background: #2e7d32; color: white; }
+.filter-item.hide { display: none !important; }
+.filter-item { animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================================
+   5. HALAMAN DETAIL (MODERN & ESTETIK)
+   ========================================= */
+.split-layout { 
+    display: flex; 
+    height: 100vh; 
+    width: 100%; 
+    overflow: hidden; 
+    background: #fff; 
+}
+
+/* SISI GAMBAR */
+.image-side { 
+    width: 50%; 
+    height: 100%; 
+    background: #f0f0f0; 
+    position: relative;
+}
+.image-side img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+}
+
+/* SISI INFORMASI (TEKS) */
+.info-side { 
+    width: 50%; 
+    height: 100%; 
+    overflow-y: auto; 
+    background: #ffffff;
+    /* Pattern halus di background agar tidak sepi */
+    background-image: radial-gradient(#2e7d32 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+    background-color: #fff;
+}
+
+/* HEADER KECIL (Sticky) */
+.mini-header {
+    padding: 20px 40px; 
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background: rgba(255, 255, 255, 0.95); /* Blur effect */
+    backdrop-filter: blur(10px);
+    position: sticky; 
+    top: 0; 
+    z-index: 10;
+}
+
+.breadcrumbs { font-size: 13px; color: #888; }
+.breadcrumbs a { color: #888; text-decoration: none; }
+.breadcrumbs b { color: #2e7d32; font-weight: 600; }
+
+/* AREA KONTEN UTAMA */
+.content-area { padding: 40px 50px; min-height: 100%; }
+
+.plant-title { 
+    font-size: 48px; 
+    font-weight: 800; 
+    color: #1a1a1a;
+    margin: 0 0 5px 0; 
+    letter-spacing: -1px;
+}
+.latin-name { 
+    font-family: "Georgia", serif; 
+    font-style: italic; 
+    font-size: 22px; 
+    color: #666; 
+    margin-bottom: 25px; 
+    display: block;
+}
+
+/* BADGES (Status Tanaman) */
+.badges { margin-bottom: 30px; display: flex; gap: 10px; flex-wrap: wrap; }
+.status-badge { 
+    background: #e8f5e9; color: #2e7d32; 
+    padding: 6px 16px; border-radius: 50px; 
+    font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+}
+.status-badge-outline { 
+    border: 1px solid #ddd; color: #666; 
+    padding: 6px 16px; border-radius: 50px; 
+    font-size: 12px; font-weight: 600; 
+}
+
+/* SECTION PER BAGIAN */
+.info-section { 
+    margin-bottom: 40px; 
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #e0e0e0; /* Garis pemisah putus-putus */
+}
+.info-section:last-of-type { border-bottom: none; }
+
+.info-section h3 { 
+    font-size: 18px; 
+    color: #2e7d32; 
+    margin-bottom: 20px; 
+    text-transform: uppercase; 
+    font-weight: 800; 
+    letter-spacing: 1px;
+    display: flex; align-items: center; gap: 10px;
+}
+
+.info-section p { color: #555; line-height: 1.7; font-size: 16px; }
+
+/* --- PERUBAHAN BESAR 1: LIST MANFAAT JADI PILLS (TOMBOL BULAT) --- */
+.benefit-pills { 
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-wrap: wrap; gap: 10px; 
+}
+.benefit-pills li { 
+    background: #fff; 
+    border: 1px solid #2e7d32; 
+    color: #2e7d32; 
+    padding: 10px 20px; 
+    border-radius: 12px; 
+    font-size: 14px; 
+    font-weight: 600; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex; align-items: center; gap: 8px;
+}
+
+/* --- PERUBAHAN BESAR 2: CARA BUDIDAYA JADI STEP NUMBER --- */
+.step-list { 
+    list-style: none; 
+    padding: 0; 
+    counter-reset: step-counter; 
+}
+.step-list li { 
+    position: relative; 
+    padding-left: 50px; 
+    margin-bottom: 25px; 
+}
+.step-list li::before {
+    counter-increment: step-counter; 
+    content: counter(step-counter);
+    position: absolute; 
+    left: 0; top: 0; 
+    width: 35px; height: 35px; 
+    background: #2e7d32; 
+    color: white; 
+    border-radius: 50%; 
+    text-align: center; 
+    line-height: 35px; 
+    font-weight: bold; 
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+}
+.step-list strong { display: block; color: #222; font-size: 16px; margin-bottom: 5px; }
+
+/* KARTU RESEP YANG LEBIH CANTIK */
+.recipe-card {
+    background: #fff9c4; /* Kuning lebih lembut */
+    border-left: 6px solid #fbc02d;
+    padding: 25px; 
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    margin-top: 15px;
+}
+.recipe-card h4 { margin-top: 0; color: #827717; font-size: 18px; margin-bottom: 15px; }
+.recipe-list { padding-left: 20px; color: #555; }
+.recipe-list li { margin-bottom: 10px; }
+
+/* RESPONSIVE KHUSUS HALAMAN DETAIL */
+@media (max-width: 768px) {
+    .split-layout { flex-direction: column-reverse; height: auto; overflow: visible; }
+    .image-side { width: 100%; height: 300px; min-height: 300px; }
+    .info-side { width: 100%; height: auto; }
+    
+    .mini-header { 
+        padding: 15px 25px; 
+        flex-direction: column; 
+        align-items: flex-start; gap: 10px;
+    }
+    .content-area { padding: 30px 25px; }
+    .plant-title { font-size: 36px; }
+    .latin-name { font-size: 18px; }
+    
+    .benefit-pills li { width: 100%; } /* Di HP list manfaat jadi lebar penuh */
+}
+
+/* TOMBOL KEMBALI (DESIGN BARU) */
+.action-area { 
+    margin-top: 50px; 
+    padding-top: 30px; 
+    border-top: 1px dashed #ddd; 
+    text-align: center; 
+}
+
+.btn-back { 
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+    
+    padding: 14px 35px; 
+    background-color: white; 
+    color: #2e7d32; 
+    border: 2px solid #2e7d32; 
+    border-radius: 50px; 
+    
+    font-weight: 700; 
+    font-size: 15px; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+}
+
+.btn-back:hover { 
+    background-color: #2e7d32; 
+    color: white; 
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.4); 
+    border-color: #2e7d32;
+}
+
+
+/* =========================================
+   6. RESPONSIVE (HP) - FINAL FIX
+   ========================================= */
+@media (max-width: 768px) {
+    /* HERO */
+    .hero { height: auto; min-height: 50vh; background-position: center top; }
+    .overlay { padding: 60px 20px 40px 20px; }
+    .hero-card h1 { font-size: 36px; }
+    .hero-card p { font-size: 14px; margin-bottom: 25px; }
+    .start-btn { padding: 10px 30px; font-size: 14px; }
+
+    /* SLIDER */
+    .plants { padding: 30px 20px; }
+    .slider-track .card { min-width: 220px; max-width: 220px; }
+    .slider-track .card img { height: 140px; }
+
+    /* HEADER */
+    .kew-header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+    .search-box input { width: 100%; }
+    .header-right { width: 100%; }
+    .nav-link { display: none; }
+
+    /* DETAIL PAGE */
+    .split-layout { flex-direction: column-reverse; height: auto; overflow: visible; }
+    .image-side { width: 100%; height: 280px; min-height: 280px; }
+    .info-side { width: 100%; height: auto; }
+    .mini-header { flex-direction: column; align-items: flex-start; gap: 10px; padding: 20px 25px; }
+    .content-area { padding: 25px; }
+    .plant-title { font-size: 34px; }
+    .filter-container { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; margin: 15px 20px; padding-bottom: 5px; }
+    .filter-btn { flex: 0 0 auto; white-space: nowrap; }
+
+    /* TOMBOL KEMBALI DI HP (FULL WIDTH) */
+    .btn-back { width: 100%; padding: 15px; }
+}
+
+footer { text-align: center; padding: 30px; background: #222; color: #aaa; margin-top: 50px; font-size: 14px; }

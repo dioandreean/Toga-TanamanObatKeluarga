@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Tanaman - TOGA Digital Desa</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+        /* Global Font Fix */
+        body { font-family: 'Segoe UI', sans-serif !important; }
+        .sci-name { font-family: 'Georgia', serif !important; }
+
+        /* 🔴 PERBAIKAN HEADER & BADGE DIGITAL DESA */
+        .site-title {
+            display: flex;
+            align-items: center; 
+            gap: 10px;
+            text-decoration: none;
+        }
+        .site-title span {
+            white-space: nowrap; 
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            vertical-align: middle;
+        }
+
+        /* 🔵 PERBAIKAN POSISI SEARCH BAR DI HP */
+        @media (max-width: 768px) {
+            .kew-header {
+                flex-direction: column;
+                align-items: center; 
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            .header-right {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center; 
+                gap: 10px;
+            }
+
+            .search-box {
+                width: 100%; 
+                display: flex;
+                justify-content: center; 
+            }
+
+            .search-box input {
+                width: 100%; 
+                max-width: 100%; 
+            }
+            
+            .nav-link { display: none; }
+        }
+
+        /* GAYA TOMBOL FILTER (RAPI & SCROLL) */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 20px;
+            flex-wrap: wrap; 
+        }
+
+        .filter-btn {
+            border: none;
+            background-color: #f1f8e9;
+            color: #2e7d32;
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .filter-btn:hover { background-color: #c8e6c9; transform: translateY(-2px); }
+        .filter-btn.active { background-color: #2e7d32 !important; color: white !important; box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3); }
+
+        /* Results Bar Sederhana (Tanpa Sortir) */
+        .results-bar {
+            display: flex;
+            justify-content: center; /* Rata tengah karena sort dihapus */
+            padding: 15px 50px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .results-bar { padding: 15px 20px; }
+            /* Scroll samping untuk filter di HP */
+            .filter-container {
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .filter-btn { flex: 0 0 auto; }
+        }
+
+        .filter-item.hide { display: none !important; }
+        .filter-item { animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<header class="kew-header">
+    <a href="../index.html" class="site-title">TOGA <span>Digital Desa</span></a>
+    
+    <div class="header-right">
+        <a href="../index.html" class="nav-link">🏠 Home</a>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Cari tanaman...">
+        </div>
+    </div>
+</header>
+
+<div class="results-bar">
+    <div class="count" id="resultCount">Menampilkan semua tanaman</div>
+</div>
+
+<div class="filter-container">
+    <button class="filter-btn active" onclick="filterSelection('all', this)">Semua</button>
+    <button class="filter-btn" onclick="filterSelection('daun', this)">Daun & Batang</button>
+    <button class="filter-btn" onclick="filterSelection('buah', this)">Buah</button>
+    <button class="filter-btn" onclick="filterSelection('obat', this)">Obat Keras</button>
+</div>
+
+<section class="kew-grid" id="plantGrid">
+    
+    <a href="sirih.html" class="kew-card filter-item daun">
+        <div class="card-images"><img src="../assets/sirih.jpg" alt="Sirih"></div>
+        <div class="card-content">
+            <div class="tag"><span class="icon">🍃</span> DAUN</div>
+            <h3 class="sci-name">Piper betle</h3>
+            <p class="common-name">Daun Sirih</p>
+        </div>
+    </a>
+
+    <a href="lidahbuaya.html" class="kew-card filter-item daun">
+        <div class="card-images"><img src="../assets/lidahbuaya.jpeg" alt="Lidah Buaya"></div>
+        <div class="card-content">
+            <div class="tag"><span class="icon">🌵</span> DAUN</div>
+            <h3 class="sci-name">Aloe vera</h3>
+            <p class="common-name">Lidah Buaya</p>
+        </div>
+    </a>
+
+    <a href="kumiskucing.html" class="kew-card filter-item daun obat">
+        <div class="card-images"><img src="../assets/kumiskucing.jpg" alt="Kumis Kucing"></div>
+        <div class="card-content">
+            <div class="tag"><span class="icon">🍃</span> DAUN</div>
+            <h3 class="sci-name">Orthosiphon aristatus</h3>
+            <p class="common-name">Kumis Kucing</p>
+        </div>
+    </a>
+
+    <a href="serai.html" class="kew-card filter-item daun">
+        <div class="card-images"><img src="../assets/serai.jpg" alt="Serai"></div>
+        <div class="card-content">
+            <div class="tag"><span class="icon">🌾</span> BATANG</div>
+            <h3 class="sci-name">Cymbopogon citratus</h3>
+            <p class="common-name">Serai Wangi</p>
+        </div>
+    </a>
+
+    <a href="kelor.html" class="kew-card filter-item daun">
+        <div class="card-images"><img src="../assets/kelor.jpg" alt="Kelor"></div>
+        <div class="card-content">
+            <div class="tag"><span class="icon">🍃</span> DAUN</div>
+            <h3 class="sci-name">Moringa oleifera</h3>
+            <p class="common-name">Daun Kelor</p>
+        </div>
+    </a>
+
+    <a href="jahe.html" class="kew-card filter-item rimpang">
+        <div class="card-images"><img src="../assets/jahe.jpg" alt="Jahe"></div>
+        <div class="card-content">
+            <div class="tag"><span class="icon">🌿</span> RIMPANG</div>
+            <h3 class="sci-name">Zingiber officinale</h3>
+            <p class="common-name">Jahe</p>
+        </div>
+    </a>
+
+    <a href="kunyit.html" class="kew-card filter-item rimpang">
+        <div class="card-images"><img src="../assets/kunyit.jpg" alt="Kunyit"></div>
+        <div class="card-content">
+            <div class="tag"><span class="icon">🌿</span> RIMPANG</div>
+            <h3 class="sci-name">Curcuma longa</h3>
+            <p class="common-name">Kunyit</p>
+        </div>
+    </a>
+
+    <a href="temulawak.html" class="kew-card filter-item rimpang">
+        <div class="card-images"><img src="../assets/temulawak.jpg" alt="Temulawak"></div>
+        <div class="card-content">
+            <div class="tag"><span class="icon">🌿</span> RIMPANG</div>
+            <h3 class="sci-name">Curcuma zanthorrhiza</h3>
+            <p class="common-name">Temulawak</p>
+        </div>
+    </a>
+
+    <a href="kencur.html" class="kew-card filter-item rimpang">
+        <div class="card-images"><img src="../assets/kencur.jpg" alt="Kencur"></div>
+        <div class="card-content">
+            <div class="tag"><span class="icon">🌿</span> RIMPANG</div>
+            <h3 class="sci-name">Kaempferia galanga</h3>
+            <p class="common-name">Kencur</p>
+        </div>
+    </a>
+
+    <a href="lengkuas.html" class="kew-card filter-item rimpang">
+        <div class="card-images"><img src="../assets/lengkuas.jpg" alt="Lengkuas"></div>
+        <div class="card-content">
+            <div class="tag"><span class="icon">🌿</span> RIMPANG</div>
+            <h3 class="sci-name">Alpinia galanga</h3>
+            <p class="common-name">Lengkuas</p>
+        </div>
+    </a>
+
+    <a href="jeruknipis.html" class="kew-card filter-item buah">
+        <div class="card-images"><img src="../assets/jeruknipis.jpg" alt="Jeruk Nipis"></div>
+        <div class="card-content">
+            <div class="tag"><span class="icon">🍋</span> BUAH</div>
+            <h3 class="sci-name">Citrus aurantiifolia</h3>
+            <p class="common-name">Jeruk Nipis</p>
+        </div>
+    </a>
+
+    <a href="sambiloto.html" class="kew-card filter-item obat daun">
+        <div class="card-images"><img src="../assets/sambiloto.jpg" alt="Sambiloto"></div>
+        <div class="card-content">
+            <div class="tag"><span class="icon">💊</span> OBAT</div>
+            <h3 class="sci-name">Andrographis paniculata</h3>
+            <p class="common-name">Sambiloto</p>
+        </div>
+    </a>
+
+</section>
+
+<script>
+    // 1. FUNGSI FILTER (Kategori)
+    function filterSelection(category, btn) {
+        var cards = document.getElementsByClassName("filter-item");
+        if (category == "all") category = "";
+        
+        let visibleCount = 0;
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].classList.remove("hide");
+            if (cards[i].className.indexOf(category) == -1) {
+                cards[i].classList.add("hide");
+            } else {
+                visibleCount++;
+            }
+        }
+        
+        var btns = document.getElementsByClassName("filter-btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].classList.remove("active");
+        }
+        if(btn) btn.classList.add("active");
+        
+        document.getElementById('resultCount').innerText = visibleCount + " tanaman ditemukan";
+    }
+
+    // 2. FUNGSI PENCARIAN (Search)
+    const searchInput = document.getElementById('searchInput');
+    if(searchInput) {
+        searchInput.addEventListener('keyup', function(e) {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.kew-card');
+            let visibleCount = 0;
+            
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(term) && !card.classList.contains('hide')) {
+                    card.style.display = ""; 
+                    visibleCount++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+            document.getElementById('resultCount').innerText = visibleCount + " hasil pencarian";
+        });
+    }
+</script>
+
+</body>
+</html>
