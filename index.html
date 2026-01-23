@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOGA Digital Desa</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @media (max-width: 768px) {
+            .map-frame iframe { height: 250px !important; }
+            .float-wa { width: 40px !important; height: 40px !important; }
+            .float-wa img { width: 20px !important; height: 20px !important; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero" id="heroSection">
+    <div class="overlay">
+        <div class="hero-card">
+            <span class="welcome-badge">Selamat Datang Di Desa Patuk</span>
+            
+            <h1>TOGA <span>Tanaman Obat Keluarga</span></h1>
+            
+            <p>
+                Banyak tanaman liar di tanah <b>Desa Patuk</b> yang ternyata berkhasiat obat. 
+                Mari kenali kembali kekayaan hayati warisan alam kita untuk kemandirian 
+                kesehatan keluarga, dari alam untuk warga.
+            </p>
+            
+            <a href="tanaman/plants.html" class="start-btn">
+                Mulai Jelajahi <span class="arrow">➔</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="plants">
+    <div class="plants-header">
+        <h2>Tanaman Populer</h2>
+        </div>
+
+    <div class="slider-container">
+        <div class="slider-track">
+            
+            <a href="tanaman/jahe.html" class="card">
+                <img src="assets/jahe.jpg" alt="Jahe">
+                <h3>Jahe</h3>
+                <p>Menghangatkan tubuh.</p>
+            </a>
+
+            <a href="tanaman/kunyit.html" class="card">
+                <img src="assets/kunyit.jpg" alt="Kunyit">
+                <h3>Kunyit</h3>
+                <p>Anti peradangan.</p>
+            </a>
+
+            <a href="tanaman/sirih.html" class="card">
+                <img src="assets/sirih.jpg" alt="Daun Sirih">
+                <h3>Daun Sirih</h3>
+                <p>Antiseptik alami.</p>
+            </a>
+
+            <a href="tanaman/temulawak.html" class="card">
+                <img src="assets/temulawak.jpg" alt="Temulawak">
+                <h3>Temulawak</h3>
+                <p>Menambah nafsu makan.</p>
+            </a>
+
+            <a href="tanaman/jahe.html" class="card">
+                <img src="assets/jahe.jpg" alt="Jahe">
+                <h3>Jahe</h3>
+                <p>Menghangatkan tubuh.</p>
+            </a>
+            <a href="tanaman/kunyit.html" class="card">
+                <img src="assets/kunyit.jpg" alt="Kunyit">
+                <h3>Kunyit</h3>
+                <p>Anti peradangan.</p>
+            </a>
+            <a href="tanaman/sirih.html" class="card">
+                <img src="assets/sirih.jpg" alt="Daun Sirih">
+                <h3>Daun Sirih</h3>
+                <p>Antiseptik alami.</p>
+            </a>
+            <a href="tanaman/temulawak.html" class="card">
+                <img src="assets/temulawak.jpg" alt="Temulawak">
+                <h3>Temulawak</h3>
+                <p>Menambah nafsu makan.</p>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>KKN Universitas Ahmad Dahlan Kelompok VI.D.3 2026</p>
+</footer>
+
+<script>
+    const images = [
+        "assets/toga.jpeg",
+        "assets/pudak.jpg",
+        "assets/pudak1.jpg"
+    ];
+
+    let currentIndex = 0;
+    const heroSection = document.getElementById('heroSection');
+
+    // Cek apakah elemen hero ada sebelum menjalankan script
+    if (heroSection) {
+        function changeBackground() {
+            currentIndex = (currentIndex + 1) % images.length;
+            heroSection.style.backgroundImage = `url('${images[currentIndex]}')`;
+        }
+        setInterval(changeBackground, 3000);
+    }
+</script>
+
+</body>
+</html>
