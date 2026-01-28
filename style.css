@@ -1,5 +1,5 @@
 /* =========================================
-   1. RESET & GLOBAL
+   1. RESET & GLOBAL STYLES
    ========================================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -10,6 +10,7 @@ body {
     overflow-x: hidden;
     background-color: #f9f9f9;
 }
+
 a { text-decoration: none; color: inherit; }
 
 /* =========================================
@@ -21,46 +22,55 @@ a { text-decoration: none; color: inherit; }
     position: relative;
     transition: background-image 1s ease-in-out;
 }
+
 .overlay {
     background: rgba(0, 0, 0, 0.6);
     height: 100%; width: 100%;
     display: flex; justify-content: center; align-items: center;
     padding: 20px;
 }
+
 .hero-card {
     background: transparent; border: none; box-shadow: none; backdrop-filter: none;
     padding: 20px; text-align: center; max-width: 900px; color: white;
     animation: fadeInUp 1.2s ease-out;
 }
+
 .welcome-badge {
     display: inline-block; background: #2e7d32; color: #fff;
     font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
     padding: 8px 20px; border-radius: 50px; margin-bottom: 25px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
+
 .hero-card h1 {
     font-family: 'Georgia', serif; font-size: 64px; margin-bottom: 15px;
     line-height: 1.1; text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
 }
+
 .hero-card h1 span {
     font-family: 'Segoe UI', sans-serif; font-weight: 300; display: block;
     font-size: 32px; margin-top: 10px; opacity: 0.9;
 }
+
 .hero-card p {
     font-size: 18px; margin-bottom: 40px; line-height: 1.6; font-weight: 400;
     max-width: 600px; margin-left: auto; margin-right: auto;
     text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
 }
+
 .start-btn {
     background: #2e7d32; color: white; padding: 15px 45px; border-radius: 50px;
     font-weight: bold; font-size: 16px; transition: all 0.3s ease;
     display: inline-flex; align-items: center; gap: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.4); border: 2px solid transparent;
 }
+
 .start-btn:hover {
     background: transparent; border-color: #2e7d32; color: #fff;
     transform: translateY(-5px);
 }
+
 .start-btn:hover .arrow { transform: translateX(5px); }
 
 @keyframes fadeInUp {
@@ -69,7 +79,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================================
-   3. SLIDER TANAMAN (STYLE PERBAIKAN)
+   3. SLIDER TANAMAN (CARD SLIDER)
    ========================================= */
 .plants { padding: 60px 40px; }
 .plants-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
@@ -77,7 +87,6 @@ a { text-decoration: none; color: inherit; }
 
 .slider-container { overflow: hidden; width: 100%; padding: 10px 0 30px 0; position: relative; }
 
-/* PENTING: Display FLEX agar kartu sejajar ke samping */
 .slider-track { 
     display: flex; 
     gap: 30px; 
@@ -91,27 +100,31 @@ a { text-decoration: none; color: inherit; }
     box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s;
     border: 1px solid #eee; text-decoration: none; color: inherit;
 }
+
 .slider-track .card img { width: 100%; height: 180px; object-fit: cover; }
 .slider-track .card h3 { margin: 15px 15px 5px; font-size: 18px; color: #2e7d32; }
 .slider-track .card p { margin: 0 15px 20px; font-size: 14px; color: #666; }
 
 .slider-track:hover { animation-play-state: paused; }
 .slider-track .card:hover { transform: translateY(-10px); border-color: #2e7d32; }
+
 @keyframes scrollLoop { 0% { transform: translateX(0); } 100% { transform: translateX(-1240px); } }
 
 /* =========================================
-   4. HALAMAN LIST (GRID & HEADER)
+   4. HALAMAN LIST (GRID, HEADER, FILTER)
    ========================================= */
 .kew-header {
     background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
     padding: 15px 50px; display: flex; justify-content: space-between; align-items: center;
     position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
+
 .site-title { font-family: 'Georgia', serif; font-size: 24px; color: #1b5e20; display: flex; gap: 8px; }
 .site-title span {
     font-family: 'Segoe UI', sans-serif; font-size: 12px; background: #e8f5e9;
     color: #2e7d32; padding: 4px 10px; border-radius: 6px; font-weight: 700;
 }
+
 .header-right { display: flex; align-items: center; gap: 25px; }
 .nav-link { font-size: 14px; font-weight: 700; color: #666; text-transform: uppercase; }
 .nav-link:hover { color: #2e7d32; }
@@ -121,21 +134,24 @@ a { text-decoration: none; color: inherit; }
     background: #f1f3f4; width: 280px; transition: all 0.3s;
 }
 .search-box input:focus { background: #f6f6f6; border-color: #2e7d32; width: 320px; outline: none; }
+
 .results-bar {
     background: #fff; padding: 15px 50px; display: flex; justify-content: space-between;
     align-items: center; border-bottom: 1px solid #f0f0f0; margin-bottom: 30px;
 }
 
-/* Grid Tanaman */
+/* Grid Layout */
 .kew-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; 
     margin: 0 40px 60px 40px;
 }
+
 .kew-card {
     background: #fff; border: 1px solid #e0e0e0; border-radius: 12px;
     overflow: hidden; transition: transform 0.2s; display: flex; flex-direction: column; height: 100%;
 }
 .kew-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
 .card-content { padding: 25px; flex-grow: 1; }
 .sci-name { font-family: "Georgia", serif; font-style: italic; font-size: 22px; margin-bottom: 10px; }
 .card-images { height: 200px; margin-top: 20px; }
@@ -150,83 +166,60 @@ a { text-decoration: none; color: inherit; }
 .filter-btn.active { background: #2e7d32; color: white; }
 .filter-item.hide { display: none !important; }
 .filter-item { animation: fadeIn 0.5s ease; }
+
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* =========================================
-   5. HALAMAN DETAIL (MODERN & ESTETIK)
+   5. HALAMAN DETAIL (LAYOUT & COMPONENTS)
    ========================================= */
 .split-layout { 
-    display: flex; 
-    height: 100vh; 
-    width: 100%; 
-    overflow: hidden; 
-    background: #fff; 
+    display: flex; height: 100vh; width: 100%; 
+    overflow: hidden; background: #fff; 
 }
 
 /* SISI GAMBAR */
 .image-side { 
-    width: 50%; 
-    height: 100%; 
-    background: #f0f0f0; 
-    position: relative;
+    width: 50%; height: 100%; 
+    background: #f0f0f0; position: relative;
 }
 .image-side img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    display: block; 
+    width: 100%; height: 100%; 
+    object-fit: cover; display: block; 
 }
 
-/* SISI INFORMASI (TEKS) */
+/* SISI INFORMASI */
 .info-side { 
-    width: 50%; 
-    height: 100%; 
-    overflow-y: auto; 
+    width: 50%; height: 100%; overflow-y: auto; 
     background: #ffffff;
-    /* Pattern halus di background agar tidak sepi */
     background-image: radial-gradient(#2e7d32 0.5px, transparent 0.5px);
     background-size: 20px 20px;
-    background-color: #fff;
 }
 
-/* HEADER KECIL (Sticky) */
+/* Mini Header Sticky */
 .mini-header {
     padding: 20px 40px; 
     border-bottom: 1px solid rgba(0,0,0,0.05);
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    background: rgba(255, 255, 255, 0.95); /* Blur effect */
-    backdrop-filter: blur(10px);
-    position: sticky; 
-    top: 0; 
-    z-index: 10;
+    display: flex; justify-content: space-between; align-items: center; 
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 10;
 }
 
 .breadcrumbs { font-size: 13px; color: #888; }
 .breadcrumbs a { color: #888; text-decoration: none; }
 .breadcrumbs b { color: #2e7d32; font-weight: 600; }
 
-/* AREA KONTEN UTAMA */
 .content-area { padding: 40px 50px; min-height: 100%; }
 
 .plant-title { 
-    font-size: 48px; 
-    font-weight: 800; 
-    color: #1a1a1a;
-    margin: 0 0 5px 0; 
-    letter-spacing: -1px;
+    font-size: 48px; font-weight: 800; color: #1a1a1a;
+    margin: 0 0 5px 0; letter-spacing: -1px;
 }
 .latin-name { 
-    font-family: "Georgia", serif; 
-    font-style: italic; 
-    font-size: 22px; 
-    color: #666; 
-    margin-bottom: 25px; 
-    display: block;
+    font-family: "Georgia", serif; font-style: italic; 
+    font-size: 22px; color: #666; margin-bottom: 25px; display: block;
 }
 
-/* BADGES (Status Tanaman) */
+/* Badges */
 .badges { margin-bottom: 30px; display: flex; gap: 10px; flex-wrap: wrap; }
 .status-badge { 
     background: #e8f5e9; color: #2e7d32; 
@@ -235,156 +228,93 @@ a { text-decoration: none; color: inherit; }
 }
 .status-badge-outline { 
     border: 1px solid #ddd; color: #666; 
-    padding: 6px 16px; border-radius: 50px; 
-    font-size: 12px; font-weight: 600; 
+    padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; 
 }
 
-/* SECTION PER BAGIAN */
+/* Info Sections */
 .info-section { 
-    margin-bottom: 40px; 
-    padding-bottom: 30px;
-    border-bottom: 1px dashed #e0e0e0; /* Garis pemisah putus-putus */
+    margin-bottom: 40px; padding-bottom: 30px;
+    border-bottom: 1px dashed #e0e0e0;
 }
 .info-section:last-of-type { border-bottom: none; }
 
 .info-section h3 { 
-    font-size: 18px; 
-    color: #2e7d32; 
-    margin-bottom: 20px; 
-    text-transform: uppercase; 
-    font-weight: 800; 
-    letter-spacing: 1px;
+    font-size: 18px; color: #2e7d32; margin-bottom: 20px; 
+    text-transform: uppercase; font-weight: 800; letter-spacing: 1px;
     display: flex; align-items: center; gap: 10px;
 }
-
 .info-section p { color: #555; line-height: 1.7; font-size: 16px; }
 
-/* --- PERUBAHAN BESAR 1: LIST MANFAAT JADI PILLS (TOMBOL BULAT) --- */
+/* Tombol Manfaat (Pills) */
 .benefit-pills { 
     list-style: none; padding: 0; margin: 0;
     display: flex; flex-wrap: wrap; gap: 10px; 
 }
 .benefit-pills li { 
-    background: #fff; 
-    border: 1px solid #2e7d32; 
-    color: #2e7d32; 
-    padding: 10px 20px; 
-    border-radius: 12px; 
-    font-size: 14px; 
-    font-weight: 600; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    display: flex; align-items: center; gap: 8px;
+    background: #fff; border: 1px solid #2e7d32; color: #2e7d32; 
+    padding: 10px 20px; border-radius: 12px; font-size: 14px; font-weight: 600; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 8px;
+    cursor: pointer; transition: transform 0.2s, background 0.2s; user-select: none;
+}
+.benefit-pills li:hover {
+    background-color: #e8f5e9; transform: scale(1.05); border-color: #2e7d32;
+}
+.benefit-pills li.active-btn {
+    background-color: #2e7d32; color: white; box-shadow: inset 0 3px 5px rgba(0,0,0,0.2);
 }
 
-/* --- PERUBAHAN BESAR 2: CARA BUDIDAYA JADI STEP NUMBER --- */
-.step-list { 
-    list-style: none; 
-    padding: 0; 
-    counter-reset: step-counter; 
-}
-.step-list li { 
-    position: relative; 
-    padding-left: 50px; 
-    margin-bottom: 25px; 
-}
+/* Step List (Cara Budidaya) */
+.step-list { list-style: none; padding: 0; counter-reset: step-counter; }
+.step-list li { position: relative; padding-left: 50px; margin-bottom: 25px; }
 .step-list li::before {
-    counter-increment: step-counter; 
-    content: counter(step-counter);
-    position: absolute; 
-    left: 0; top: 0; 
-    width: 35px; height: 35px; 
-    background: #2e7d32; 
-    color: white; 
-    border-radius: 50%; 
-    text-align: center; 
-    line-height: 35px; 
-    font-weight: bold; 
-    font-size: 16px;
+    counter-increment: step-counter; content: counter(step-counter);
+    position: absolute; left: 0; top: 0; 
+    width: 35px; height: 35px; background: #2e7d32; color: white; 
+    border-radius: 50%; text-align: center; line-height: 35px; 
+    font-weight: bold; font-size: 16px;
     box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
 }
 .step-list strong { display: block; color: #222; font-size: 16px; margin-bottom: 5px; }
 
-/* KARTU RESEP YANG LEBIH CANTIK */
+/* Kartu Resep Statis */
 .recipe-card {
-    background: #fff9c4; /* Kuning lebih lembut */
-    border-left: 6px solid #fbc02d;
-    padding: 25px; 
-    border-radius: 15px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-    margin-top: 15px;
+    background: #fff9c4; border-left: 6px solid #fbc02d;
+    padding: 25px; border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 15px;
 }
 .recipe-card h4 { margin-top: 0; color: #827717; font-size: 18px; margin-bottom: 15px; }
 .recipe-list { padding-left: 20px; color: #555; }
 .recipe-list li { margin-bottom: 10px; }
 
-/* RESPONSIVE KHUSUS HALAMAN DETAIL */
-@media (max-width: 768px) {
-    .split-layout { flex-direction: column-reverse; height: auto; overflow: visible; }
-    .image-side { width: 100%; height: 300px; min-height: 300px; }
-    .info-side { width: 100%; height: auto; }
-    
-    .mini-header { 
-        padding: 15px 25px; 
-        flex-direction: column; 
-        align-items: flex-start; gap: 10px;
-    }
-    .content-area { padding: 30px 25px; }
-    .plant-title { font-size: 36px; }
-    .latin-name { font-size: 18px; }
-    
-    .benefit-pills li { width: 100%; } /* Di HP list manfaat jadi lebar penuh */
-}
-
-/* TOMBOL KEMBALI (DESIGN BARU) */
+/* Tombol Kembali */
 .action-area { 
-    margin-top: 50px; 
-    padding-top: 30px; 
-    border-top: 1px dashed #ddd; 
-    text-align: center; 
+    margin-top: 50px; padding-top: 30px; 
+    border-top: 1px dashed #ddd; text-align: center; 
 }
-
 .btn-back { 
-    display: inline-flex; 
-    align-items: center;
-    justify-content: center;
-    gap: 10px; 
-    
-    padding: 14px 35px; 
-    background-color: white; 
-    color: #2e7d32; 
-    border: 2px solid #2e7d32; 
-    border-radius: 50px; 
-    
-    font-weight: 700; 
-    font-size: 15px; 
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none;
-    
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; 
+    padding: 14px 35px; background-color: white; color: #2e7d32; 
+    border: 2px solid #2e7d32; border-radius: 50px; 
+    font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: 1px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
 }
-
 .btn-back:hover { 
-    background-color: #2e7d32; 
-    color: white; 
-    transform: translateY(-5px); 
-    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.4); 
-    border-color: #2e7d32;
+    background-color: #2e7d32; color: white; 
+    transform: translateY(-5px); box-shadow: 0 10px 25px rgba(46, 125, 50, 0.4); 
 }
 
-
 /* =========================================
-   6. RESPONSIVE (HP) - FINAL FIX
+   6. RESPONSIVE GLOBAL (MOBILE OPTIMIZATION)
    ========================================= */
 @media (max-width: 768px) {
-    /* HERO */
+    /* HERO & HOME */
     .hero { height: auto; min-height: 50vh; background-position: center top; }
     .overlay { padding: 60px 20px 40px 20px; }
     .hero-card h1 { font-size: 36px; }
     .hero-card p { font-size: 14px; margin-bottom: 25px; }
     .start-btn { padding: 10px 30px; font-size: 14px; }
-
+    
     /* SLIDER */
     .plants { padding: 30px 20px; }
     .slider-track .card { min-width: 220px; max-width: 220px; }
@@ -405,9 +335,124 @@ a { text-decoration: none; color: inherit; }
     .plant-title { font-size: 34px; }
     .filter-container { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; margin: 15px 20px; padding-bottom: 5px; }
     .filter-btn { flex: 0 0 auto; white-space: nowrap; }
-
-    /* TOMBOL KEMBALI DI HP (FULL WIDTH) */
     .btn-back { width: 100%; padding: 15px; }
+    .benefit-pills li { width: 100%; }
 }
 
 footer { text-align: center; padding: 30px; background: #222; color: #aaa; margin-top: 50px; font-size: 14px; }
+
+/* =========================================
+   7. FITUR INTERAKTIF (PILIH SALAH SATU DI HTML)
+   ========================================= */
+
+/* --- A. ACCORDION (Gaya Terbaru - REKOMENDASI) --- */
+.benefit-stack {
+    display: flex; flex-direction: column; gap: 12px; margin-top: 10px;
+}
+details.benefit-item {
+    width: 100%; background: #fff; border-radius: 12px;
+    transition: all 0.3s ease; border: 1px solid #e0e0e0;
+}
+summary.benefit-trigger {
+    list-style: none; background: #fff; color: #2e7d32;
+    padding: 15px 20px; border-radius: 12px;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: all 0.3s;
+}
+summary.benefit-trigger::-webkit-details-marker { display: none; }
+summary.benefit-trigger:hover { background: #e8f5e9; padding-left: 25px; }
+
+details.benefit-item[open] summary.benefit-trigger {
+    background: #2e7d32; color: #fff;
+    border-radius: 12px 12px 0 0; border-bottom: none;
+}
+
+.benefit-content {
+    background: #f1f8e9; border-top: 1px solid #c8e6c9;
+    padding: 20px; border-radius: 0 0 12px 12px;
+    animation: slideDown 0.3s ease-out;
+}
+.benefit-content h4 {
+    margin: 0 0 10px 0; color: #1b5e20; font-size: 14px;
+    text-transform: uppercase; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 8px; font-weight: 800;
+}
+.benefit-content ul {
+    margin: 0; padding-left: 20px; color: #444; font-size: 14px; line-height: 1.6;
+}
+.benefit-content li { margin-bottom: 8px; }
+details.benefit-item[open] .arrow { transform: rotate(180deg); }
+.arrow { transition: transform 0.3s; font-size: 12px; }
+
+
+/* --- B. POPUP MELAYANG (Floating Menu - Gaya Sirih) --- */
+.benefit-pills li { position: relative; } /* Wajib untuk popup */
+.floating-recipe {
+    display: none; position: absolute;
+    top: 120%; left: 0; z-index: 100;
+    width: 300px; background-color: #ffffff;
+    border: 1px solid #c8e6c9; border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); padding: 20px; text-align: left;
+    animation: popIn 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+.floating-recipe::after {
+    content: ""; position: absolute; bottom: 100%; left: 20px;
+    border-width: 8px; border-style: solid; border-color: transparent transparent #ffffff transparent;
+}
+.floating-recipe h3 {
+    margin-top: 0; color: #2e7d32; font-size: 16px;
+    border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 10px;
+}
+.floating-recipe ol {
+    padding-left: 20px; margin: 0; font-size: 14px; color: #555; line-height: 1.5;
+}
+@media (max-width: 768px) {
+    .floating-recipe { width: 280px; left: 50%; transform: translateX(-50%); }
+    .floating-recipe::after { left: 50%; margin-left: -8px; }
+    @keyframes popIn {
+        from { opacity: 0; transform: translateX(-50%) translateY(-10px) scale(0.95); }
+        to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+    }
+}
+@keyframes popIn {
+    from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+/* --- C. MODAL OVERLAY (Popup Tengah Layar - Gaya Lama) --- */
+.modal-overlay {
+    display: none; position: fixed; z-index: 9999; 
+    left: 0; top: 0; width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.6); backdrop-filter: blur(3px);
+    animation: fadeIn 0.3s;
+}
+.modal-content {
+    background-color: #fefefe; margin: 10% auto; padding: 30px;
+    border: 1px solid #888; width: 90%; max-width: 500px; 
+    border-radius: 15px; position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: slideUp 0.3s;
+}
+.close-btn {
+    color: #aaa; float: right; font-size: 28px; font-weight: bold;
+    cursor: pointer; transition: 0.2s;
+}
+.close-btn:hover { color: #d32f2f; }
+.modal-content h3 {
+    color: #2e7d32; margin-top: 0; border-bottom: 2px solid #e8f5e9;
+    padding-bottom: 10px; margin-bottom: 15px;
+}
+@keyframes slideUp { from {transform: translateY(20px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- D. RECIPE PANEL (Panel Inline di Bawah Tombol) --- */
+.recipe-panel {
+    display: none; background: #f1f8e9; border-left: 5px solid #2e7d32;
+    padding: 20px; margin-top: 20px; border-radius: 8px;
+    animation: slideDown 0.4s ease-out;
+}
+.recipe-panel h3 {
+    margin-top: 0; color: #2e7d32; font-size: 18px;
+    border-bottom: 1px dashed #ccc; padding-bottom: 10px; margin-bottom: 15px;
+}
