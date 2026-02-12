@@ -5,35 +5,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kunyit - TOGA Digital Desa</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        /* --- CSS DASAR --- */
+        .split-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .info-side {
+            flex: 1;
+            padding: 40px;
+            background: #fff;
+        }
+
+        .image-side {
+            flex: 1;
+            background: #f4f4f4;
+            position: relative;
+        }
+
+        .image-side img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: sticky;
+            top: 0;
+        }
+
+        /* --- KOMPONEN MAP & BENEFIT --- */
+        .map-container-new {
+            position: relative;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            background: #e5e3df;
+        }
+        .map-iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            display: block;
+        }
+        .map-overlay-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.15);
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .map-btn-new {
+            background: #2e7d32;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .benefit-item {
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .benefit-trigger {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            background: #fff;
+        }
+        .benefit-content {
+            padding: 15px;
+            background: #fcfcfc;
+            border-top: 1px solid #eee;
+            line-height: 1.6;
+        }
+        .step-list {
+            padding-left: 20px;
+            line-height: 2.0;
+            color: #444;
+        }
+        .step-list li {
+            margin-bottom: 10px;
+        }
+
+        /* --- RESPONSIVE MOBILE (SINKRONISASI HP) --- */
+        @media (max-width: 768px) {
+            .split-layout {
+                flex-direction: column; /* Mengubah arah menjadi vertikal */
+            }
+
+            .image-side {
+                order: 1; /* Gambar tampil pertama di paling atas */
+                width: 100%;
+                height: 300px;
+            }
+
+            .image-side img {
+                height: 300px;
+                position: static; /* Menghapus efek sticky di mobile */
+            }
+
+            .info-side {
+                order: 2; /* Teks tampil setelah gambar */
+                width: 100%;
+                padding: 25px 20px;
+            }
+
+            .plant-title {
+                font-size: 2rem;
+            }
+
+            .map-iframe {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <div class="split-layout">
     <div class="info-side">
-        <header class="mini-header">
+        <header class="mini-header" style="margin-bottom: 30px;">
             <a href="../index.html" class="site-title">TOGA <span>Digital Desa</span></a>
-            <div class="breadcrumbs">
-                <a href="../index.html">Home</a> &gt; <a href="plants.html">Zingiberaceae</a> &gt; <b>Kunyit</b>
+            <div class="breadcrumbs" style="margin-top: 10px;">
+                <a href="../index.html">Home</a> > <a href="plants.html">Zingiberaceae</a> > <b>Kunyit</b>
             </div>
         </header>
 
         <main class="content-area">
-            <span class="family-tag">Zingiberaceae</span>
-            <h1 class="plant-title">Kunyit</h1>
-            <h2 class="latin-name">Curcuma longa <span>L.</span></h2>
+            <span class="family-tag" style="display: inline-block; margin-bottom: 10px; color: #2e7d32; font-weight: bold;">Zingiberaceae</span>
+            <h1 class="plant-title" style="margin-bottom: 5px;">Kunyit</h1>
+            <h2 class="latin-name" style="margin-bottom: 25px;">Curcuma longa <span>L.</span></h2>
             
-            <div class="badges">
-                <span class="status-badge">Pewarna Alami</span>
-                <span class="status-badge-outline">Rimpang</span>
+            <div class="badges" style="margin-bottom: 30px; display: flex; gap: 10px;">
+                <span class="status-badge" style="background: #e8f5e9; color: #2e7d32; padding: 5px 15px; border-radius: 20px; font-size: 14px;">Pewarna Alami</span>
+                <span class="status-badge-outline" style="border: 1px solid #ccc; padding: 5px 15px; border-radius: 20px; font-size: 14px;">Rimpang</span>
             </div>
 
-            <div class="info-section">
+            <div class="info-section" style="margin-bottom: 40px;">
                 <h3>📖 Data Tanaman</h3>
-                <p>Kunyit atau kunir adalah tanaman rempah asli Asia Tenggara. Rimpangnya berwarna oranye terang di bagian dalam. Mengandung senyawa kurkumin yang memberikan warna kuning khas.</p>
+                <p style="line-height: 1.8; color: #444;">Kunyit adalah tanaman rempah dan obat asli Indonesia yang sangat populer untuk keperluan kuliner maupun kesehatan. Kunyit mengandung senyawa kimia alami yang disebut kurkuminoid yang terdiri dari Kurkumin, Desmetoksikurkumin, dan Minyak Atsiri.</p>
             </div>
 
-            <div class="info-section">
-                <h3>❤️ Manfaat & Resep</h3>
+            <div class="info-section" style="margin-bottom: 40px;">
+                <h3>❤️ Manfaat & Cara Pengolahan</h3>
                 <div class="benefit-stack">
                     <details class="benefit-item">
                         <summary class="benefit-trigger">
@@ -41,43 +169,70 @@
                             <span class="arrow">▼</span>
                         </summary>
                         <div class="benefit-content">
-                            <h4>🍵 Resep: Jamu Kunyit Asam</h4>
-                            <ul>
-                                <li>Parut 100g kunyit tua, peras airnya.</li>
-                                <li>Rebus air perasan dengan asam jawa dan gula merah.</li>
-                                <li>Minum hangat saat nyeri haid melanda.</li>
-                            </ul>
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">🍵 Cara Olah: Jamu Kunyit Asam</h4>
+                            <p>Parut 100g kunyit tua, peras airnya. Rebus air perasan dengan asam jawa dan gula merah. Minum hangat saat nyeri melanda.</p>
                         </div>
                     </details>
-                    </div>
+
+                    <details class="benefit-item">
+                        <summary class="benefit-trigger">
+                            <span>🛡️ Meningkatkan Imunitas</span>
+                            <span class="arrow">▼</span>
+                        </summary>
+                        <div class="benefit-content">
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">☕ Cara Olah: Teh Kunyit Madu</h4>
+                            <p>Iris tipis kunyit, seduh dengan air panas. Tambahkan madu dan sedikit perasan jeruk nipis setelah air menjadi hangat.</p>
+                        </div>
+                    </details>
+
+                    <details class="benefit-item">
+                        <summary class="benefit-trigger">
+                            <span>🌿 Detoksifikasi Hati (Liver)</span>
+                            <span class="arrow">▼</span>
+                        </summary>
+                        <div class="benefit-content">
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">🍵 Cara Olah: Air Rebusan Kunyit Pagi</h4>
+                            <p>Rebus 2 ruas kunyit yang telah diiris tipis dengan 2 gelas air hingga mendidih. Minum secara teratur.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
 
-            <div class="info-section">
+            <div class="info-section" style="margin-bottom: 40px;">
                 <h3>🌱 Cara Budidaya</h3>
                 <ol class="step-list">
-                    <li><strong>Bibit:</strong> Pilih rimpang tua yang memiliki 2-3 mata tunas.</li>
-                    <li><strong>Tanam:</strong> Tanam sedalam 5-7 cm dengan tunas menghadap ke atas.</li>
+                    <li><strong>Persiapan Bibit:</strong> Pilih rimpang kunyit yang sudah tua (7-8 bulan) dan memiliki tunas.</li>
+                    <li><strong>Media Tanam:</strong> Tanah gembur campur pupuk kandang (2:1).</li>
+                    <li><strong>Penanaman:</strong> Tanam bibit sedalam 5-10 cm dengan posisi tunas ke atas.</li>
+                    <li><strong>Perawatan:</strong> Siram rutin 1-2 kali sehari dan jaga drainase air.</li>
                 </ol>
             </div>
 
-            <div class="info-section">
-                <h3>📍 Lokasi Penanaman</h3>
-                <p style="font-size: 14px; color: #666; margin-bottom: 12px;">Temukan lokasi pembudidayaan tanaman ini di Desa Patuk:</p>
-                
-                <a href="https://www.google.com/maps/search/?api=1&query=Desa+Patuk+Gunung+Kidul" target="_blank" class="map-link-card">
-                    <div class="map-box">
-                        <div class="map-overlay">
-                            <span class="map-btn">Buka di Google Maps ➔</span>
-                        </div>
-                        <img src="../assets/map-preview.jpg" alt="Peta Desa Patuk" class="map-img">
-                    </div>
-                </a>
+            <div class="info-section" style="margin-bottom: 50px;">
+                <h3>📍 LOKASI PENANAMAN</h3>
+                <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Temukan lokasi tanaman ini di Desa Patuk:</p>
+                <div class="map-container-new">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.571477!2d110.5113!3d-7.8546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTEnMTYuNiJTIDExMMKwMzAnNDAuNyJF!5e0!3m2!1sid!2sid!4v1700000000000" 
+                        class="map-iframe" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                    <a href="https://maps.app.goo.gl/JRUc8m32HZGTscHG7" target="_blank" class="map-overlay-link">
+                        <span class="map-btn-new">Buka di Google Maps ➔</span>
+                    </a>
+                </div>
             </div>
 
-            <div class="action-area"><a href="plants.html" class="btn-back">← Kembali ke Daftar</a></div>
+            <div class="action-area" style="padding-top: 20px; border-top: 1px solid #eee;">
+                <a href="plants.html" class="btn-back" style="text-decoration: none; color: #2e7d32; font-weight: bold;">← Kembali ke Daftar</a>
+            </div>
         </main>
+    </div> 
+
+    <div class="image-side">
+        <img src="../assets/kunyit.jpg" alt="Kunyit">
     </div>
-    <div class="image-side"><img src="../assets/kunyit.jpg" alt="Kunyit"></div>
-</div>
+</div> 
 </body>
 </html>
