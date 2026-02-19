@@ -147,53 +147,40 @@ a { text-decoration: none; color: inherit; }
 .card-images img { width: 100%; height: 100%; object-fit: cover; }
 
 /* =========================================
-   5. HALAMAN DETAIL (LAYOUT & COMPONENTS) - FIX VERSION
+   5. HALAMAN DETAIL (LAYOUT & COMPONENTS)
    ========================================= */
 .split-layout { 
     display: flex; 
-    flex-direction: row; /* Memastikan sejajar samping */
-    height: 100vh; 
     width: 100%; 
-    overflow: hidden; 
-    background: #fff; 
+    min-height: 100vh;
 }
 
-/* SISI INFORMASI (KIRI) */
 .info-side { 
     width: 50%; 
-    height: 100%; 
-    overflow-y: auto; 
+    padding: 40px 50px;
     background: #ffffff;
-    background-image: radial-gradient(#2e7d32 0.5px, transparent 0.5px);
-    background-size: 20px 20px;
-    display: flex;
-    flex-direction: column;
 }
 
-/* SISI GAMBAR (KANAN) */
 .image-side { 
     width: 50%; 
     height: 100vh; 
     position: sticky;
     top: 0;
-    background: #f0f0f0;
 }
+
 .image-side img { 
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
-    display: block; 
 }
 
+/* Tulisan TOGA di detail yang ikut naik saat scroll */
 .mini-header {
-    padding: 20px 40px; 
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    display: flex; justify-content: space-between; align-items: center; 
-    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-    position: sticky; top: 0; z-index: 10;
+    padding: 0 0 30px 0; 
+    border-bottom: 1px solid #eee;
+    margin-bottom: 40px;
+    position: relative; /* Agar tidak diam di tempat saat scroll */
 }
-
-.content-area { padding: 40px 50px; min-height: 100%; }
 
 .plant-title { font-size: 48px; font-weight: 800; color: #1a1a1a; margin-bottom: 5px; }
 .latin-name { font-family: "Georgia", serif; font-style: italic; font-size: 22px; color: #666; margin-bottom: 25px; display: block; }
@@ -202,137 +189,62 @@ a { text-decoration: none; color: inherit; }
 .status-badge-outline { border: 1px solid #ddd; color: #666; padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; }
 
 .info-section { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px dashed #e0e0e0; }
-.info-section:last-of-type { border-bottom: none; }
 .info-section h3 { font-size: 18px; color: #2e7d32; margin-bottom: 20px; text-transform: uppercase; font-weight: 800; }
 
 /* =========================================
-   6. BENEFIT ACCORDION 
+   6. BENEFIT & MAPS
    ========================================= */
-.benefit-stack { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
-details.benefit-item { width: 100%; background: #fff; border-radius: 12px; border: 1px solid #e0e0e0; }
-summary.benefit-trigger { list-style: none; padding: 15px 20px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-details.benefit-item[open] summary.benefit-trigger { background: #2e7d32; color: #fff; border-radius: 12px 12px 0 0; }
-.benefit-content { background: #f1f8e9; padding: 20px; border-radius: 0 0 12px 12px; }
+.benefit-stack { display: flex; flex-direction: column; gap: 12px; }
+details.benefit-item { width: 100%; border-radius: 12px; border: 1px solid #e0e0e0; overflow: hidden; }
+summary.benefit-trigger { padding: 15px 20px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; background: #fff; }
+.benefit-content { background: #f9f9f9; padding: 20px; border-top: 1px solid #eee; }
+
+.map-container-new {
+    position: relative; width: 100%; height: 250px; border-radius: 15px;
+    overflow: hidden; border: 2px solid #e8f5e9; margin-top: 15px;
+}
+.map-iframe { width: 100%; height: 100%; border: none; }
+.map-overlay-link {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+    background: rgba(0, 0, 0, 0.1); z-index: 5;
+}
+.map-btn-new { background: #2e7d32; color: white; padding: 12px 24px; border-radius: 50px; font-weight: 700; }
+
+.action-area { margin-top: 50px; display: flex; justify-content: center; }
+.btn-back { padding: 14px 35px; border: 2px solid #2e7d32; border-radius: 50px; font-weight: 700; color: #2e7d32; }
+.btn-back:hover { background: #2e7d32; color: white; }
 
 /* =========================================
-   7. MAPS SECTION STYLES - FIXED
+   7. RESPONSIVE MEDIA QUERIES (SINKRON HP)
    ========================================= */
-.map-container-new {
-    position: relative;
-    width: 100%;
-    height: 250px;
-    border-radius: 15px;
-    overflow: hidden;
-    border: 2px solid #e8f5e9;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin: 20px 0; /* Memberi jarak atas bawah */
-}
+@media (max-width: 768px) {
+    .split-layout {
+        flex-direction: column; /* Tumpuk ke bawah */
+    }
 
-.map-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-}
+    .image-side {
+        width: 100%;
+        height: 300px;
+        position: relative; /* Biar tidak sticky di HP */
+        order: 1; /* Gambar di atas */
+    }
 
-/* Overlay yang membungkus tombol agar tepat di tengah peta */
-.map-overlay-link {
-    position: absolute;
-    top: 0; 
-    left: 0;
-    width: 100%; 
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.15); /* Gelap tipis agar peta tetap kelihatan */
-    text-decoration: none;
-    z-index: 5;
-    transition: background 0.3s ease;
-}
+    .info-side {
+        width: 100%;
+        padding: 30px 20px;
+        order: 2; /* Teks di bawah */
+    }
 
-.map-overlay-link:hover {
-    background: rgba(0, 0, 0, 0.25);
-}
-
-.map-btn-new {
-    background: #2e7d32;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 14px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    pointer-events: none; /* Agar klik tembus ke link pembungkusnya */
-}
-
-/* =========================================
-   8. TOMBOL KEMBALI & FOOTER
-   ========================================= */
-.action-area { 
-    margin-top: 40px; 
-    padding-top: 20px; 
-    display: flex;
-    justify-content: center; /* Tombol jadi di tengah */
-    width: 100%;
-}
-
-.btn-back { 
-    display: inline-flex; 
-    align-items: center; 
-    padding: 14px 35px; 
-    border: 2px solid #2e7d32; 
-    border-radius: 50px; 
-    font-weight: 700; 
-    color: #2e7d32; 
-    background: white;
-    transition: all 0.3s ease;
-}
-
-.btn-back:hover { 
-    background: #2e7d32; 
-    color: white; 
-    transform: translateY(-5px); 
-    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
-}
-
-footer { 
-    text-align: center; 
-    padding: 30px; 
-    background: #222; 
-    color: #aaa; 
-    margin-top: 50px; 
-}
-/* Container Utama Peta */
-.map-container-new {
-    position: relative;
-    width: 100%;
-    height: 250px;
-    border-radius: 15px;
-    overflow: hidden;
-    border: 2px solid #e8f5e9;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-top: 15px;
-}
-
-/* Layer Transparan & Tombol di Tengah */
-.map-overlay-link {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    z-index: 10;
-}
-
-/* Tombol Kembali di Tengah */
-.action-area { 
-    margin-top: 50px; 
-    padding-top: 30px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
+    .hero-card h1 { font-size: 36px; }
+    .kew-grid { margin: 20px; grid-template-columns: 1fr; }
+    .plant-title { font-size: 32px; }
+    
+    .kew-header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    .search-box input { width: 100%; }
 }

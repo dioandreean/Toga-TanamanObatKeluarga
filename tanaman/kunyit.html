@@ -6,7 +6,7 @@
     <title>Kunyit - TOGA Digital Desa</title>
     <link rel="stylesheet" href="../style.css">
     <style>
-        /* --- CSS DASAR --- */
+        /* --- CSS DASAR (Sesuai Struktur Serai) --- */
         .split-layout {
             display: flex;
             min-height: 100vh;
@@ -32,7 +32,7 @@
             top: 0;
         }
 
-        /* --- KOMPONEN MAP & BENEFIT --- */
+        /* --- KOMPONEN MAP & BENEFIT (Sesuai Struktur Serai) --- */
         .map-container-new {
             position: relative;
             width: 100%;
@@ -101,7 +101,7 @@
             margin-bottom: 10px;
         }
 
-        /* --- RESPONSIVE MOBILE (SINKRONISASI HP) --- */
+        /* --- RESPONSIVE MOBILE (SINKRONISASI HP - Sesuai Struktur Serai) --- */
         @media (max-width: 768px) {
             .split-layout {
                 flex-direction: column; /* Mengubah arah menjadi vertikal */
@@ -157,7 +157,7 @@
 
             <div class="info-section" style="margin-bottom: 40px;">
                 <h3>📖 Data Tanaman</h3>
-                <p style="line-height: 1.8; color: #444;">Kunyit adalah tanaman rempah dan obat asli Indonesia yang sangat populer untuk keperluan kuliner maupun kesehatan. Kunyit mengandung senyawa kimia alami yang disebut kurkuminoid yang terdiri dari Kurkumin, Desmetoksikurkumin, dan Minyak Atsiri.</p>
+                <p style="line-height: 1.8; color: #444;">Kunyit adalah tanaman rempah dan obat asli di Indonesia yang sangat populer untuk keperluan kuliner maupun kesehatan. Kunyit memiliki batang semu yang terbentuk dari pelepah daun yang saling menutupi, daun berwarna hijau dengan ujung meruncing. Kunyit mengandung senyawa kimia alami yang disebut kurkuminoid yang terdiri dari Kurkumin, Desmetoksikurkumin, dan Minyak Atsiri.</p>
             </div>
 
             <div class="info-section" style="margin-bottom: 40px;">
@@ -192,7 +192,29 @@
                         </summary>
                         <div class="benefit-content">
                             <h4 style="color: #2e7d32; margin-bottom: 8px;">🍵 Cara Olah: Air Rebusan Kunyit Pagi</h4>
-                            <p>Rebus 2 ruas kunyit yang telah diiris tipis dengan 2 gelas air hingga mendidih. Minum secara teratur.</p>
+                            <p>Rebus 2 ruas kunyit yang telah diiris tipis dengan 2 gelas air hingga mendidih. Kandungan kurkumin membantu membersihkan racun dalam hati dan empedu jika diminum secara teratur.</p>
+                        </div>
+                    </details>
+
+                    <details class="benefit-item">
+                        <summary class="benefit-trigger">
+                            <span>✨ Kesehatan Kulit & Jerawat</span>
+                            <span class="arrow">▼</span>
+                        </summary>
+                        <div class="benefit-content">
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">🧴 Cara Olah: Masker Kunyit Alami</h4>
+                            <p>Campurkan parutan kunyit halus dengan sedikit madu atau yogurt hingga menjadi pasta. Oleskan pada wajah untuk membunuh bakteri penyebab jerawat dan mencerahkan kulit secara alami.</p>
+                        </div>
+                    </details>
+
+                    <details class="benefit-item">
+                        <summary class="benefit-trigger">
+                            <span>🦷 Meredakan Sakit Gigi & Gusi</span>
+                            <span class="arrow">▼</span>
+                        </summary>
+                        <div class="benefit-content">
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">👄 Cara Olah: Air Kumur Kunyit</h4>
+                            <p>Gunakan air rebusan kunyit hangat yang dicampur sedikit garam untuk berkumur. Sifat antimikrobanya membantu meredakan peradangan pada gusi dan mengurangi rasa nyeri.</p>
                         </div>
                     </details>
                 </div>
@@ -201,16 +223,17 @@
             <div class="info-section" style="margin-bottom: 40px;">
                 <h3>🌱 Cara Budidaya</h3>
                 <ol class="step-list">
-                    <li><strong>Persiapan Bibit:</strong> Pilih rimpang kunyit yang sudah tua (7-8 bulan) dan memiliki tunas.</li>
-                    <li><strong>Media Tanam:</strong> Tanah gembur campur pupuk kandang (2:1).</li>
-                    <li><strong>Penanaman:</strong> Tanam bibit sedalam 5-10 cm dengan posisi tunas ke atas.</li>
-                    <li><strong>Perawatan:</strong> Siram rutin 1-2 kali sehari dan jaga drainase air.</li>
+                    <li><strong>Persiapan Bibit:</strong> Pilih rimpang kunyit yang sudah tua (berumur 7-8 bulan) dan memiliki 2-3 mata tunas.</li>
+                    <li><strong>Media Tanam:</strong> Gunakan tanah gembur yang dicampur dengan pupuk kandang atau kompos (perbandingan 2:1).</li>
+                    <li><strong>Penanaman:</strong> Tanam bibit rimpang sedalam 5-10 cm dengan posisi mata tunas menghadap ke atas.</li>
+                    <li><strong>Perawatan:</strong> Lakukan penyiraman rutin 1-2 kali sehari dan pastikan drainase air lancar agar rimpang tidak busuk.</li>
                 </ol>
             </div>
 
             <div class="info-section" style="margin-bottom: 50px;">
                 <h3>📍 LOKASI PENANAMAN</h3>
                 <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Temukan lokasi tanaman ini di Desa Patuk:</p>
+                
                 <div class="map-container-new">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.571477!2d110.5113!3d-7.8546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTEnMTYuNiJTIDExMMKwMzAnNDAuNyJF!5e0!3m2!1sid!2sid!4v1700000000000" 
@@ -218,6 +241,7 @@
                         allowfullscreen="" 
                         loading="lazy">
                     </iframe>
+                    
                     <a href="https://maps.app.goo.gl/JRUc8m32HZGTscHG7" target="_blank" class="map-overlay-link">
                         <span class="map-btn-new">Buka di Google Maps ➔</span>
                     </a>
@@ -231,7 +255,7 @@
     </div> 
 
     <div class="image-side">
-        <img src="../assets/kunyit.jpg" alt="Kunyit">
+        <img src="../assets/kunyit.jpeg" alt="Kunyit">
     </div>
 </div> 
 </body>
