@@ -5,37 +5,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sambiloto - TOGA Digital Desa</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        /* --- CSS DASAR (Sesuai Struktur Serai) --- */
+        .split-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .info-side {
+            flex: 1;
+            padding: 40px;
+            background: #fff;
+        }
+
+        .image-side {
+            flex: 1;
+            background: #f4f4f4;
+            position: relative;
+        }
+
+        .image-side img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: sticky;
+            top: 0;
+        }
+
+        /* --- KOMPONEN MAP & BENEFIT --- */
+        .map-container-new {
+            position: relative;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            background: #e5e3df;
+        }
+        .map-iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            display: block;
+        }
+        .map-overlay-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.15);
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .map-btn-new {
+            background: #2e7d32;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .benefit-item {
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .benefit-trigger {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            background: #fff;
+        }
+        .benefit-content {
+            padding: 15px;
+            background: #fcfcfc;
+            border-top: 1px solid #eee;
+            line-height: 1.6;
+        }
+        .step-list {
+            padding-left: 20px;
+            line-height: 2.0;
+            color: #444;
+        }
+        .step-list li {
+            margin-bottom: 10px;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .split-layout {
+                flex-direction: column;
+            }
+
+            .image-side {
+                order: 1;
+                width: 100%;
+                height: 300px;
+            }
+
+            .image-side img {
+                height: 300px;
+                position: static;
+            }
+
+            .info-side {
+                order: 2;
+                width: 100%;
+                padding: 25px 20px;
+            }
+
+            .plant-title {
+                font-size: 2rem;
+            }
+
+            .map-iframe {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <div class="split-layout">
     <div class="info-side">
-        <header class="mini-header">
+        <header class="mini-header" style="margin-bottom: 30px;">
             <a href="../index.html" class="site-title">TOGA <span>Digital Desa</span></a>
-            <div class="breadcrumbs">
-                <a href="../index.html">Home</a> &gt; <a href="plants.html">Acanthaceae</a> &gt; <b>Sambiloto</b>
+            <div class="breadcrumbs" style="margin-top: 10px;">
+                <a href="../index.html">Home</a> > <a href="plants.html">Acanthaceae</a> > <b>Sambiloto</b>
             </div>
         </header>
 
         <main class="content-area">
-            <span class="family-tag">Acanthaceae</span>
-            <h1 class="plant-title">Sambiloto</h1>
-            <h2 class="latin-name">Andrographis paniculata <span>(Burm.f.) Wall.</span></h2>
+            <span class="family-tag" style="display: inline-block; margin-bottom: 10px; color: #2e7d32; font-weight: bold;">Acanthaceae</span>
+            <h1 class="plant-title" style="margin-bottom: 5px;">Sambiloto</h1>
+            <h2 class="latin-name" style="margin-bottom: 25px;">Andrographis paniculata <span>(Burm.f.) Wall.</span></h2>
             
-            <div class="badges">
-                <span class="status-badge">Si Raja Pahit</span>
-                <span class="status-badge-outline">Daun</span>
+            <div class="badges" style="margin-bottom: 30px; display: flex; gap: 10px;">
+                <span class="status-badge" style="background: #e8f5e9; color: #2e7d32; padding: 5px 15px; border-radius: 20px; font-size: 14px;">Si Raja Pahit</span>
+                <span class="status-badge-outline" style="border: 1px solid #ccc; padding: 5px 15px; border-radius: 20px; font-size: 14px;">Daun</span>
             </div>
 
-            <div class="info-section">
+            <div class="info-section" style="margin-bottom: 40px;">
                 <h3>📖 Data Tanaman</h3>
-                <p>Tanaman terna tegak yang terkenal dengan rasa daunnya yang sangat pahit. Dijuluki "King of Bitters". Sering digunakan sebagai jamu untuk berbagai penyakit dalam.</p>
+                <p style="line-height: 1.8; color: #444;">Tanaman terna tegak yang terkenal dengan rasa daunnya yang sangat pahit. Dijuluki sebagai <i>"King of Bitters"</i>, sambiloto merupakan salah satu apotek hidup paling berkhasiat. Daunnya mengandung senyawa <i>andrographolide</i> yang berfungsi sebagai anti-inflamasi dan peningkat sistem imun alami.</p>
             </div>
 
-            <div class="info-section">
+            <div class="info-section" style="margin-bottom: 40px;">
                 <h3>❤️ Manfaat & Cara Pengolahan</h3>
-                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Klik tombol di bawah untuk melihat resep:</p>
-
                 <div class="benefit-stack">
                     <details class="benefit-item">
                         <summary class="benefit-trigger">
@@ -43,12 +169,8 @@
                             <span class="arrow">▼</span>
                         </summary>
                         <div class="benefit-content">
-                            <h4>🍵 Resep: Rebusan Sambiloto</h4>
-                            <ul>
-                                <li>Seduh 5-7 lembar daun sambiloto dengan air panas.</li>
-                                <li>Minum selagi hangat setelah makan.</li>
-                                <li>Rasanya sangat pahit, bisa ditambah sedikit madu.</li>
-                            </ul>
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">🍵 Cara Olah: Rebusan Sambiloto</h4>
+                            <p>Seduh atau rebus 5-7 lembar daun sambiloto segar dengan air panas sebanyak satu gelas. Minum selagi hangat setelah makan untuk membantu mengontrol kadar glukosa dalam darah. Karena rasanya yang sangat tajam, Anda dapat menambahkan sedikit madu murni.</p>
                         </div>
                     </details>
 
@@ -58,29 +180,49 @@
                             <span class="arrow">▼</span>
                         </summary>
                         <div class="benefit-content">
-                            <h4>💊 Resep: Bubuk Sambiloto</h4>
-                            <ul>
-                                <li>Tumbuk daun kering hingga jadi bubuk.</li>
-                                <li>Seduh 1 sdt bubuk dengan madu.</li>
-                                <li>Minum 2x sehari saat demam.</li>
-                            </ul>
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">💊 Cara Olah: Ramuan Bubuk</h4>
+                            <p>Tumbuk daun sambiloto kering hingga menjadi bubuk halus. Seduh 1 sendok teh bubuk dengan setengah gelas air hangat, tambahkan madu untuk mengurangi pahit. Minum 2 kali sehari secara rutin hingga suhu tubuh kembali normal.</p>
                         </div>
                     </details>
                 </div>
             </div>
 
-            <div class="info-section">
+            <div class="info-section" style="margin-bottom: 40px;">
                 <h3>🌱 Cara Budidaya</h3>
                 <ol class="step-list">
-                    <li><strong>Biji:</strong> Semai biji yang sudah tua dan kering.</li>
-                    <li><strong>Tanam:</strong> Pindahkan ke pot setelah tumbuh 3-4 daun.</li>
-                    <li><strong>Perawatan:</strong> Tanaman ini tangguh, mudah tumbuh di berbagai kondisi.</li>
+                    <li><strong>Persemaian:</strong> Tebarkan biji yang sudah tua dan kering di media semai. Tutup tipis dengan tanah dan jaga kelembapannya.</li>
+                    <li><strong>Pemindahan:</strong> Setelah bibit memiliki 3-4 helai daun sejati, pindahkan ke pot atau lahan terbuka dengan paparan sinar matahari yang cukup.</li>
+                    <li><strong>Ketahanan:</strong> Sambiloto termasuk tanaman yang sangat tangguh dan mudah beradaptasi di berbagai kondisi tanah asalkan drainase airnya baik.</li>
                 </ol>
             </div>
-            <div class="action-area"><a href="plants.html" class="btn-back">← Kembali ke Daftar</a></div>
+
+            <div class="info-section" style="margin-bottom: 50px;">
+                <h3>📍 LOKASI PENANAMAN</h3>
+                <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Temukan lokasi tanaman ini di Desa Patuk:</p>
+                
+                <div class="map-container-new">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126480.99266100589!2d110.457896489379!3d-7.840428355607063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a503079947931%3A0xc074797030507a2e!2sPatuk%2C%20Kec.%20Patuk%2C%20Kabupaten%20Gunung%20Kidul%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1707730000000" 
+                        class="map-iframe" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                    
+                    <a href="https://maps.app.goo.gl/uamBJuTByEsG636aA" target="_blank" class="map-overlay-link">
+                        <span class="map-btn-new">Buka di Google Maps ➔</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="action-area" style="padding-top: 20px; border-top: 1px solid #eee;">
+                <a href="plants.html" class="btn-back" style="text-decoration: none; color: #2e7d32; font-weight: bold;">← Kembali ke Daftar</a>
+            </div>
         </main>
+    </div> 
+
+    <div class="image-side">
+        <img src="../assets/sambiloto.jpg" alt="Sambiloto">
     </div>
-    <div class="image-side"><img src="../assets/sambiloto.jpg" alt="Sambiloto"></div>
-</div>
+</div> 
 </body>
 </html>

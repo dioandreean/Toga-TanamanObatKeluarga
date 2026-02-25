@@ -5,37 +5,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temulawak - TOGA Digital Desa</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        /* --- CSS DASAR (Sesuai Struktur Serai) --- */
+        .split-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .info-side {
+            flex: 1;
+            padding: 40px;
+            background: #fff;
+        }
+
+        .image-side {
+            flex: 1;
+            background: #f4f4f4;
+            position: relative;
+        }
+
+        .image-side img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: sticky;
+            top: 0;
+        }
+
+        /* --- KOMPONEN MAP & BENEFIT --- */
+        .map-container-new {
+            position: relative;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            background: #e5e3df;
+        }
+        .map-iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            display: block;
+        }
+        .map-overlay-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.15);
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .map-btn-new {
+            background: #2e7d32;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .benefit-item {
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .benefit-trigger {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            background: #fff;
+        }
+        .benefit-content {
+            padding: 15px;
+            background: #fcfcfc;
+            border-top: 1px solid #eee;
+            line-height: 1.6;
+        }
+        .step-list {
+            padding-left: 20px;
+            line-height: 2.0;
+            color: #444;
+        }
+        .step-list li {
+            margin-bottom: 10px;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .split-layout {
+                flex-direction: column;
+            }
+
+            .image-side {
+                order: 1;
+                width: 100%;
+                height: 300px;
+            }
+
+            .image-side img {
+                height: 300px;
+                position: static;
+            }
+
+            .info-side {
+                order: 2;
+                width: 100%;
+                padding: 25px 20px;
+            }
+
+            .plant-title {
+                font-size: 2rem;
+            }
+
+            .map-iframe {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <div class="split-layout">
     <div class="info-side">
-        <header class="mini-header">
+        <header class="mini-header" style="margin-bottom: 30px;">
             <a href="../index.html" class="site-title">TOGA <span>Digital Desa</span></a>
-            <div class="breadcrumbs">
-                <a href="../index.html">Home</a> &gt; <a href="plants.html">Zingiberaceae</a> &gt; <b>Temulawak</b>
+            <div class="breadcrumbs" style="margin-top: 10px;">
+                <a href="../index.html">Home</a> > <a href="plants.html">Zingiberaceae</a> > <b>Temulawak</b>
             </div>
         </header>
 
         <main class="content-area">
-            <span class="family-tag">Zingiberaceae</span>
-            <h1 class="plant-title">Temulawak</h1>
-            <h2 class="latin-name">Curcuma zanthorrhiza <span>Roxb.</span></h2>
+            <span class="family-tag" style="display: inline-block; margin-bottom: 10px; color: #2e7d32; font-weight: bold;">Zingiberaceae</span>
+            <h1 class="plant-title" style="margin-bottom: 5px;">Temulawak</h1>
+            <h2 class="latin-name" style="margin-bottom: 25px;">Curcuma zanthorrhiza <span>Roxb.</span></h2>
             
-            <div class="badges">
-                <span class="status-badge">Asli Indonesia</span>
-                <span class="status-badge-outline">Rimpang</span>
+            <div class="badges" style="margin-bottom: 30px; display: flex; gap: 10px;">
+                <span class="status-badge" style="background: #e8f5e9; color: #2e7d32; padding: 5px 15px; border-radius: 20px; font-size: 14px;">Asli Indonesia</span>
+                <span class="status-badge-outline" style="border: 1px solid #ccc; padding: 5px 15px; border-radius: 20px; font-size: 14px;">Rimpang</span>
             </div>
 
-            <div class="info-section">
+            <div class="info-section" style="margin-bottom: 40px;">
                 <h3>📖 Data Tanaman</h3>
-                <p>Tanaman asli Indonesia yang mirip kunyit tapi ukurannya lebih besar. Daging rimpangnya berwarna kuning jingga dengan aroma tajam. Dikenal ampuh menjaga kesehatan organ hati.</p>
+                <p style="line-height: 1.8; color: #444;">Tanaman asli Indonesia yang secara morfologi mirip dengan kunyit, namun memiliki ukuran rimpang dan daun yang jauh lebih besar. Daging rimpangnya berwarna kuning jingga cerah dengan aroma tajam yang khas. Temulawak mengandung senyawa <i>curcumin</i> yang sangat baik untuk regenerasi sel hati.</p>
             </div>
 
-            <div class="info-section">
+            <div class="info-section" style="margin-bottom: 40px;">
                 <h3>❤️ Manfaat & Cara Pengolahan</h3>
-                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Klik tombol di bawah untuk melihat resep:</p>
-
                 <div class="benefit-stack">
                     <details class="benefit-item">
                         <summary class="benefit-trigger">
@@ -43,44 +169,60 @@
                             <span class="arrow">▼</span>
                         </summary>
                         <div class="benefit-content">
-                            <h4>🥤 Resep: Sari Temulawak</h4>
-                            <ul>
-                                <li>Iris tipis temulawak dan jemur sebentar.</li>
-                                <li>Rebus dengan air dan gula aren hingga mendidih.</li>
-                                <li>Saring dan minum. Baik untuk anak susah makan.</li>
-                            </ul>
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">🥤 Cara Olah: Sari Temulawak</h4>
+                            <p>Iris tipis rimpang temulawak yang sudah dibersihkan, lalu jemur sebentar (diangin-anginkan). Rebus irisan tersebut dengan air dan gula aren secukupnya hingga mendidih. Saring dan minum saat hangat. Ramuan ini sangat baik diberikan kepada anak-anak yang mengalami masalah sulit makan.</p>
                         </div>
                     </details>
 
                     <details class="benefit-item">
                         <summary class="benefit-trigger">
-                            <span>🛡️ Menjaga Fungsi Hati</span>
+                            <span>🛡️ Menjaga Fungsi Hati (Liver)</span>
                             <span class="arrow">▼</span>
                         </summary>
                         <div class="benefit-content">
-                            <h4>🍵 Resep: Minuman Detoks Hati</h4>
-                            <ul>
-                                <li>Parut temulawak segar, peras airnya.</li>
-                                <li>Campur dengan sedikit madu dan air hangat.</li>
-                                <li>Membantu liver membuang racun tubuh.</li>
-                            </ul>
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">🍵 Cara Olah: Minuman Detoks Hati</h4>
+                            <p>Parut temulawak segar, lalu peras airnya menggunakan kain bersih. Campurkan air perasan tersebut dengan satu sendok madu murni dan sedikit air hangat. Konsumsi secara teratur untuk membantu kerja liver dalam membuang racun dari dalam tubuh.</p>
                         </div>
                     </details>
                 </div>
             </div>
 
-            <div class="info-section">
+            <div class="info-section" style="margin-bottom: 40px;">
                 <h3>🌱 Cara Budidaya</h3>
                 <ol class="step-list">
-                    <li><strong>Bibit:</strong> Gunakan rimpang induk tua yang dipotong-potong.</li>
-                    <li><strong>Tanam:</strong> Tanam di tanah gembur pada awal musim hujan.</li>
-                    <li><strong>Perawatan:</strong> Penyiangan gulma rutin agar rimpang tumbuh besar.</li>
+                    <li><strong>Bibit:</strong> Gunakan potongan rimpang induk yang sudah tua dan memiliki mata tunas yang sehat.</li>
+                    <li><strong>Penanaman:</strong> Tanam di tanah yang gembur dan kaya bahan organik. Waktu terbaik adalah pada awal musim hujan agar kebutuhan air tercukupi secara alami.</li>
+                    <li><strong>Perawatan:</strong> Lakukan penyiangan gulma secara rutin dan pemupukan organik agar rimpang dapat tumbuh besar dan maksimal.</li>
                 </ol>
             </div>
-            <div class="action-area"><a href="plants.html" class="btn-back">← Kembali ke Daftar</a></div>
+
+            <div class="info-section" style="margin-bottom: 50px;">
+                <h3>📍 LOKASI PENANAMAN</h3>
+                <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Temukan lokasi tanaman ini di Desa Patuk:</p>
+                
+                <div class="map-container-new">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.789139234856!2d110.5050!3d-7.9150!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTQnNTQuMCJTIDExMMKwMzAnMTguMCJF!5e0!3m2!1sid!2sid!4v1625000000000!5m2!1sid!2sid" 
+                        class="map-iframe" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                    
+                    <a href="https://maps.google.com/?q=-7.9150,110.5050" target="_blank" class="map-overlay-link">
+                        <span class="map-btn-new">Buka di Google Maps ➔</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="action-area" style="padding-top: 20px; border-top: 1px solid #eee;">
+                <a href="plants.html" class="btn-back" style="text-decoration: none; color: #2e7d32; font-weight: bold;">← Kembali ke Daftar</a>
+            </div>
         </main>
+    </div> 
+
+    <div class="image-side">
+        <img src="../assets/temulawak.jpg" alt="Temulawak">
     </div>
-    <div class="image-side"><img src="../assets/temulawak.jpg" alt="Temulawak"></div>
-</div>
+</div> 
 </body>
 </html>

@@ -5,51 +5,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daun Sirih - TOGA Digital Desa</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        /* --- CSS DASAR (Sesuai Struktur Serai) --- */
+        .split-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .info-side {
+            flex: 1;
+            padding: 40px;
+            background: #fff;
+        }
+
+        .image-side {
+            flex: 1;
+            background: #f4f4f4;
+            position: relative;
+        }
+
+        .image-side img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: sticky;
+            top: 0;
+        }
+
+        /* --- KOMPONEN MAP & BENEFIT --- */
+        .map-container-new {
+            position: relative;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            background: #e5e3df;
+        }
+        .map-iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            display: block;
+        }
+        .map-overlay-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.15);
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .map-btn-new {
+            background: #2e7d32;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .benefit-item {
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .benefit-trigger {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            background: #fff;
+        }
+        .benefit-content {
+            padding: 15px;
+            background: #fcfcfc;
+            border-top: 1px solid #eee;
+            line-height: 1.6;
+        }
+        .step-list {
+            padding-left: 20px;
+            line-height: 2.0;
+            color: #444;
+        }
+        .step-list li {
+            margin-bottom: 10px;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .split-layout {
+                flex-direction: column;
+            }
+
+            .image-side {
+                order: 1;
+                width: 100%;
+                height: 300px;
+            }
+
+            .image-side img {
+                height: 300px;
+                position: static;
+            }
+
+            .info-side {
+                order: 2;
+                width: 100%;
+                padding: 25px 20px;
+            }
+
+            .plant-title {
+                font-size: 2rem;
+            }
+
+            .map-iframe {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <div class="split-layout">
     <div class="info-side">
-        <header class="mini-header">
+        <header class="mini-header" style="margin-bottom: 30px;">
             <a href="../index.html" class="site-title">TOGA <span>Digital Desa</span></a>
-            <div class="breadcrumbs">
-                <a href="../index.html">Home</a> &gt; <a href="plants.html">Piperaceae</a> &gt; <b>Sirih</b>
+            <div class="breadcrumbs" style="margin-top: 10px;">
+                <a href="../index.html">Home</a> > <a href="plants.html">Piperaceae</a> > <b>Sirih</b>
             </div>
         </header>
 
         <main class="content-area">
-            <span class="family-tag">Piperaceae</span>
-            <h1 class="plant-title">Daun Sirih</h1>
-            <h2 class="latin-name">Piper betle <span>L.</span></h2>
+            <span class="family-tag" style="display: inline-block; margin-bottom: 10px; color: #2e7d32; font-weight: bold;">Piperaceae</span>
+            <h1 class="plant-title" style="margin-bottom: 5px;">Daun Sirih</h1>
+            <h2 class="latin-name" style="margin-bottom: 25px;">Piper betle <span>L.</span></h2>
             
-            <div class="badges">
-                <span class="status-badge">Antiseptik</span>
-                <span class="status-badge-outline">Daun</span>
+            <div class="badges" style="margin-bottom: 30px; display: flex; gap: 10px;">
+                <span class="status-badge" style="background: #e8f5e9; color: #2e7d32; padding: 5px 15px; border-radius: 20px; font-size: 14px;">Antiseptik</span>
+                <span class="status-badge-outline" style="border: 1px solid #ccc; padding: 5px 15px; border-radius: 20px; font-size: 14px;">Daun</span>
             </div>
 
-            <div class="info-section">
+            <div class="info-section" style="margin-bottom: 40px;">
                 <h3>📖 Data Tanaman</h3>
-                <p>Tanaman merambat yang daunnya berbentuk jantung. Kaya akan minyak atsiri yang berfungsi sebagai antibakteri alami. Sering dikunyah bersama pinang atau direbus untuk obat kumur.</p>
+                <p style="line-height: 1.8; color: #444;">Tanaman merambat yang daunnya berbentuk jantung. Kaya akan minyak atsiri yang berfungsi sebagai antibakteri dan antijamur alami. Secara tradisional, daun sirih sering digunakan untuk menjaga kesehatan rongga mulut, mengobati luka, hingga menjadi simbol penyambutan dalam budaya Nusantara.</p>
             </div>
 
-            <div class="info-section">
+            <div class="info-section" style="margin-bottom: 40px;">
                 <h3>❤️ Manfaat & Cara Pengolahan</h3>
-                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Klik tombol di bawah untuk melihat resep:</p>
-
                 <div class="benefit-stack">
                     <details class="benefit-item">
                         <summary class="benefit-trigger">
-                            <span>🦷 Menguatkan Gigi</span>
+                            <span>🦷 Menjaga Kesehatan Mulut & Gigi</span>
                             <span class="arrow">▼</span>
                         </summary>
                         <div class="benefit-content">
-                            <h4>🌿 Resep: Kunyahan Sirih</h4>
-                            <ul>
-                                <li>Ambil 1-2 lembar daun sirih segar, cuci bersih.</li>
-                                <li>Lipat daun dan kunyah perlahan.</li>
-                                <li>Biarkan air sirih di mulut 2-3 menit.</li>
-                                <li>Buang ampas dan kumur air bersih.</li>
-                            </ul>
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">🌿 Cara Olah: Kunyahan Alami</h4>
+                            <p>Cuci bersih 1-2 lembar daun sirih segar. Kunyah perlahan hingga hancur dan biarkan air sarinya membasahi seluruh rongga mulut selama 2-3 menit. Cara ini efektif untuk menguatkan gusi dan menghilangkan bau mulut.</p>
                         </div>
                     </details>
 
@@ -59,27 +180,19 @@
                             <span class="arrow">▼</span>
                         </summary>
                         <div class="benefit-content">
-                            <h4>🍃 Resep: Sumbat Daun Sirih</h4>
-                            <ul>
-                                <li>Ambil daun sirih muda yang lentur.</li>
-                                <li>Remas sedikit agar minyak keluar.</li>
-                                <li>Gulung menyerupai sumbat hidung.</li>
-                                <li>Sumbat hidung sambil mendongak sedikit.</li>
-                            </ul>
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">🍃 Cara Olah: Sumbat Hidung</h4>
+                            <p>Ambil satu lembar daun sirih muda, bersihkan, lalu remas sedikit hingga mengeluarkan aroma (minyak atsiri keluar). Gulung daun tersebut dan masukkan perlahan ke lubang hidung yang berdarah untuk membantu pembekuan darah secara cepat.</p>
                         </div>
                     </details>
 
                     <details class="benefit-item">
                         <summary class="benefit-trigger">
-                            <span>🦠 Antiseptik Alami</span>
+                            <span>🦠 Antiseptik & Pembersih Luka</span>
                             <span class="arrow">▼</span>
                         </summary>
                         <div class="benefit-content">
-                            <h4>💧 Resep: Air Rebusan Antiseptik</h4>
-                            <ul>
-                                <li>Rebus 5-7 lembar daun sirih dengan 2 gelas air.</li>
-                                <li>Gunakan airnya untuk mencuci luka (dingin) atau obat kumur.</li>
-                            </ul>
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">💧 Cara Olah: Air Rebusan</h4>
+                            <p>Rebus 5-7 lembar daun sirih dalam 2 gelas air hingga mendidih dan air tersisa setengahnya. Gunakan air rebusan yang sudah dingin untuk mencuci luka terbuka atau sebagai obat kumur antiseptik setelah menggosok gigi.</p>
                         </div>
                     </details>
 
@@ -89,29 +202,49 @@
                             <span class="arrow">▼</span>
                         </summary>
                         <div class="benefit-content">
-                            <h4>🛁 Resep: Mandi Air Sirih</h4>
-                            <ul>
-                                <li>Rebus 10-15 lembar daun sirih dengan 1 liter air.</li>
-                                <li>Campurkan ke dalam bak mandi.</li>
-                                <li>Gunakan untuk bilasan terakhir mandi sore.</li>
-                            </ul>
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">🛁 Cara Olah: Mandi Air Sirih</h4>
+                            <p>Rebus 10-15 lembar daun sirih dengan 1 liter air. Campurkan air rebusan tersebut ke dalam air mandi Anda. Gunakan untuk bilasan terakhir guna membunuh bakteri penyebab bau badan secara alami.</p>
                         </div>
                     </details>
                 </div>
             </div>
 
-            <div class="info-section">
+            <div class="info-section" style="margin-bottom: 40px;">
                 <h3>🌱 Cara Budidaya</h3>
                 <ol class="step-list">
-                    <li><strong>Stek Batang:</strong> Potong batang yang sudah memiliki akar gantung (sekitar 3 ruas).</li>
-                    <li><strong>Tanam:</strong> Tancapkan di tempat teduh dan lembap.</li>
-                    <li><strong>Rambatan:</strong> Berikan tiang atau tembok agar sirih bisa merambat naik.</li>
+                    <li><strong>Perbanyakan:</strong> Gunakan teknik stek batang. Pilih batang yang sudah memiliki akar gantung (biasanya sekitar 3 ruas).</li>
+                    <li><strong>Penanaman:</strong> Tanam di media yang subur namun lembap. Letakkan di tempat yang teduh karena sirih tidak menyukai terik matahari langsung yang berlebihan.</li>
+                    <li><strong>Media Rambat:</strong> Berikan tiang bambu, tembok, atau tanaman kayu lainnya sebagai media bagi sirih untuk merambat naik.</li>
                 </ol>
             </div>
-            <div class="action-area"><a href="plants.html" class="btn-back">← Kembali ke Daftar</a></div>
+
+            <div class="info-section" style="margin-bottom: 50px;">
+                <h3>📍 LOKASI PENANAMAN</h3>
+                <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Temukan lokasi tanaman ini di Desa Patuk:</p>
+                
+                <div class="map-container-new">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126480.99266100589!2d110.457896489379!3d-7.840428355607063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a503079947931%3A0xc074797030507a2e!2sPatuk%2C%20Kec.%20Patuk%2C%20Kabupaten%20Gunung%20Kidul%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1707730000000" 
+                        class="map-iframe" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                    
+                    <a href="https://maps.app.goo.gl/o2FRkyuAf5mgeG2F9" target="_blank" class="map-overlay-link">
+                        <span class="map-btn-new">Buka di Google Maps ➔</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="action-area" style="padding-top: 20px; border-top: 1px solid #eee;">
+                <a href="plants.html" class="btn-back" style="text-decoration: none; color: #2e7d32; font-weight: bold;">← Kembali ke Daftar</a>
+            </div>
         </main>
+    </div> 
+
+    <div class="image-side">
+        <img src="../assets/sirih.jpg" alt="Daun Sirih">
     </div>
-    <div class="image-side"><img src="../assets/sirih.jpg" alt="Daun Sirih"></div>
-</div>
+</div> 
 </body>
 </html>
