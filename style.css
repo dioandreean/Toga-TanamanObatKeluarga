@@ -1,6 +1,4 @@
-/* =========================================
-   1. RESET & GLOBAL STYLES
-   ========================================= */
+
 * { 
     margin: 0; 
     padding: 0; 
@@ -17,9 +15,7 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
-/* =========================================
-   2. HALAMAN HOME (HERO SECTION)
-   ========================================= */
+
 .hero {
     height: 100vh;
     background: url("assets/toga.jpeg") center/cover no-repeat;
@@ -80,9 +76,7 @@ a { text-decoration: none; color: inherit; }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* =========================================
-   3. SLIDER TANAMAN (CARD SLIDER)
-   ========================================= */
+
 .plants { padding: 60px 40px; }
 .plants-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
 
@@ -111,9 +105,7 @@ a { text-decoration: none; color: inherit; }
 
 @keyframes scrollLoop { 0% { transform: translateX(0); } 100% { transform: translateX(-1240px); } }
 
-/* =========================================
-   4. HALAMAN LIST (GRID, HEADER, FILTER)
-   ========================================= */
+
 .kew-header {
     background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
     padding: 15px 50px; display: flex; justify-content: space-between; align-items: center;
@@ -146,9 +138,7 @@ a { text-decoration: none; color: inherit; }
 .card-images { height: 200px; }
 .card-images img { width: 100%; height: 100%; object-fit: cover; }
 
-/* =========================================
-   5. HALAMAN DETAIL (LAYOUT & COMPONENTS)
-   ========================================= */
+
 .split-layout { 
     display: flex; 
     width: 100%; 
@@ -174,12 +164,12 @@ a { text-decoration: none; color: inherit; }
     object-fit: cover; 
 }
 
-/* Tulisan TOGA di detail yang ikut naik saat scroll */
+
 .mini-header {
     padding: 0 0 30px 0; 
     border-bottom: 1px solid #eee;
     margin-bottom: 40px;
-    position: relative; /* Agar tidak diam di tempat saat scroll */
+    position: relative; 
 }
 
 .plant-title { font-size: 48px; font-weight: 800; color: #1a1a1a; margin-bottom: 5px; }
@@ -191,9 +181,8 @@ a { text-decoration: none; color: inherit; }
 .info-section { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px dashed #e0e0e0; }
 .info-section h3 { font-size: 18px; color: #2e7d32; margin-bottom: 20px; text-transform: uppercase; font-weight: 800; }
 
-/* =========================================
-   6. BENEFIT & MAPS
-   ========================================= */
+
+
 .benefit-stack { display: flex; flex-direction: column; gap: 12px; }
 details.benefit-item { width: 100%; border-radius: 12px; border: 1px solid #e0e0e0; overflow: hidden; }
 summary.benefit-trigger { padding: 15px 20px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; background: #fff; }
@@ -215,25 +204,23 @@ summary.benefit-trigger { padding: 15px 20px; font-weight: 700; cursor: pointer;
 .btn-back { padding: 14px 35px; border: 2px solid #2e7d32; border-radius: 50px; font-weight: 700; color: #2e7d32; }
 .btn-back:hover { background: #2e7d32; color: white; }
 
-/* =========================================
-   7. RESPONSIVE MEDIA QUERIES (SINKRON HP)
-   ========================================= */
+
 @media (max-width: 768px) {
     .split-layout {
-        flex-direction: column; /* Tumpuk ke bawah */
+        flex-direction: column; 
     }
 
     .image-side {
         width: 100%;
         height: 300px;
-        position: relative; /* Biar tidak sticky di HP */
-        order: 1; /* Gambar di atas */
+        position: relative; 
+        order: 1; 
     }
 
     .info-side {
         width: 100%;
         padding: 30px 20px;
-        order: 2; /* Teks di bawah */
+        order: 2; 
     }
 
     .hero-card h1 { font-size: 36px; }
